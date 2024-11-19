@@ -98,7 +98,7 @@ Users need to authenticate to access the IDS features. The login page requires v
 
 New users can create an account through the registration page. This page collects basic information required for user authentication.
 
-![Register Page](istatic/Results/register_page.jpg)
+![Register Page](static/Results/register_page.jpg)
 
 #### 4. Upload Section
 
