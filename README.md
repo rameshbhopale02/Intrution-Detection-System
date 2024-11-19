@@ -104,7 +104,7 @@ New users can create an account through the registration page. This page collect
 
 This section allows users to upload network data files for analysis. The uploaded files are then processed by the backend for prediction.
 
-![Upload Section](static/Results/register_page.jpg)
+![Upload Section](static/Results/upload.jpg)
 
 #### 5. Predict Section
 
