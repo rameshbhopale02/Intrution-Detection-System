@@ -11,7 +11,7 @@ Research in the field of intrusion detection has largely centered around two pri
 
 Despite numerous studies showing anomaly-based systems achieving high detection rates of up to 98% while maintaining a low false alarm rate of around 1%, practical implementations in commercial IDS solutions remain limited.
 
-## Business Problem
+## Problem Statment
 
 The goal of this project is to develop a network intrusion detection system capable of identifying anomalies and potential attacks. The project includes two main classification tasks:
 
@@ -92,22 +92,22 @@ The home page serves as the main landing page, providing an overview of the syst
 
 Users need to authenticate to access the IDS features. The login page requires valid credentials.
 
-![Login Page](results/home_page.jpg)
+![Login Page](static/Results/login_page.jpg)
 
 #### 3. Register Page
 
 New users can create an account through the registration page. This page collects basic information required for user authentication.
 
-![Register Page](images/ui_register_page.png)
+![Register Page](istatic/Results/register_page.jpg)
 
 #### 4. Upload Section
 
 This section allows users to upload network data files for analysis. The uploaded files are then processed by the backend for prediction.
 
-![Upload Section](images/ui_upload_section.png)
+![Upload Section](static/Results/result3.jpg)
 
 #### 5. Predict Section
 
 The predict section displays the results after analyzing the uploaded data. It categorizes network activities as normal or one of the predefined attack types.
 
-![Predict Section](images/ui_predict_section.png)
+![Predict Section](static/Results/predict_page.jpg)
