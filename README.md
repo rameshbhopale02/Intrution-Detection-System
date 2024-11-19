@@ -86,7 +86,7 @@ The Intrusion Detection System includes both backend machine learning models and
 
 The home page serves as the main landing page, providing an overview of the system's functionality and a navigation bar for quick access to different features.
 
-![Home Page](static/results/home_page.png)
+![Home Page](static/Results/home_page.jpg)
 
 #### 2. Login Page
 
