@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <link rel="stylesheet" href="static/upload.css" />
+    <style>
+        
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="static/images/logo-home.webp" alt="Logo" />
+            <span>Intrusion Detection System</span>
+        </div>
+        <nav class="nav-links">
+            <a href="/predPage">Predict</a>
+            <a href="#" class="active">Upload</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div>
+            <label for="fileInput">Choose a CSV file:</label>
+            <input type="file" id="fileInput" accept=".csv">
+            <button onclick="processCSV()">Predict</button>
+        </div>
+        <div id="predictionSection">
+            <h3>Predictions:</h3>
+            <table id="predictionTable">
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Prediction</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- <div class="output">
+        <h3>Prediction Result</h3>
+        <p>Attack Class: <b style="color:red;" id="attackClass"></b></p>
+        <p>This classification was based on the parameters you provided above.</p>
+    </div> -->
+
+    <script>
+        function processCSV() {
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length === 0) {
+                alert('Please choose a CSV file first.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                const csvData = event.target.result;
+                const lines = csvData.split('\n');
+                const predictions = [];
+                lines.slice(1).forEach((line, index) => {
+                    if (line.trim() !== '') {
+                        const [
+                            attackType, count, dstHostDiffSrvRate, dstHostSameSrcPortRate,
+                            dstHostSameSrvRate, dstHostSrvCount, flag, lastFlag, loggedIn, sameSrvRate,
+                            serrorRate, serviceHttp
+                        ] = line.split(',');
+
+                        const data = {
+                            attackType: parseFloat(attackType),
+                            count: parseFloat(count),
+                            dstHostDiffSrvRate: parseFloat(dstHostDiffSrvRate),
+                            dstHostSameSrcPortRate: parseFloat(dstHostSameSrcPortRate),
+                            dstHostSameSrvRate: parseFloat(dstHostSameSrvRate),
+                            dstHostSrvCount: parseFloat(dstHostSrvCount),
+                            flag: parseFloat(flag),
+                            lastFlag: parseFloat(lastFlag),
+                            loggedIn: parseFloat(loggedIn),
+                            sameSrvRate: parseFloat(sameSrvRate),
+                            serrorRate: parseFloat(serrorRate),
+                            serviceHttp: parseFloat(serviceHttp)
+                        };
+
+                        fetch('/upload2', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        })
+                        .then(response => response.json())
+                        .then(prediction => {
+                            predictions.push(prediction);
+                            const row = `<tr>
+                                <td>${index + 1}</td>
+                                <td>${prediction}</td>
+                            </tr>`;
+                            document.getElementById('tableBody').innerHTML += row;
+                        });
+                    }
+                });
+            };
+
+            reader.readAsText(file);
+        }
+    </script>
+</body>
+
+</html>

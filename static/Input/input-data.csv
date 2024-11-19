@@ -1,0 +1,2 @@
+"Threat Category - (0, 1, 2)", Count (No of connection),dst_host_diff_srv_rate,dst_host_same_src_port_rate,dst_host_same_srv_rate,dst_host_srv_count ,"flag ((S0, SF (normal, error)",last_flag ,"logged_in (0, 1)",same_srv_rate -,serror_rate,"service_http (0, 1)"
+0,13,0.6,0.88,0,1,1,15,0,0.08,0,0

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intrusion Detection System</title>
+    <link rel="stylesheet" href="static/predict.css" />
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <header class="navbar">
+      <div class="logo">
+        <img src="static/images/logo-home.webp" alt="Logo" />
+        <span>Intrusion Detection System</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#" class="active">Predict</a>
+        <a href="/upload">Upload</a>
+        <a href="/logout">Logout</a>
+      </nav>
+    </header>
+
+    <!-- Main Form Section -->
+    <div class="form-container">
+      <form action="{{ url_for('predict')}}" method="post">
+        <div class="form-row">
+          <div class="form-group">
+            <label
+              for="attack"
+              class="label-with-tooltip"
+              data-tooltip="Select the type of attack from the available options."
+              >Threat Category:</label
+            >
+            <select id="attack" name="attack">
+              <option value="0">Other</option>
+              <option value="1">Neptune</option>
+              <option value="2">Normal </option>
+              <option value="3">Satan (Network Probe)</option>
+
+            </select>
+          </div>
+          <div class="form-group">
+            <label
+              for="count"
+              class="label-with-tooltip"
+              data-tooltip="Enter the number of connections to the same destination host in the last two seconds."
+              >Connections to the same destination in the past two
+              seconds:</label
+            >
+            <input
+              type="text"
+              id="count"
+              name="count"
+              placeholder="e.g., 10"
+              required="required"
+            />
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label
+              for="dst_host_diff_srv_rate"
+              class="label-with-tooltip"
+              data-tooltip="Percentage of connections that were to different services within the same destination."
+              >Percentage of connections to different services:</label
+            >
+            <input
+              type="text"
+              id="dst_host_diff_srv_rate"
+              name="dst_host_diff_srv_rate"
+              placeholder="e.g., 20 (0-100)"
+              required="required"
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="dst_host_same_src_port_rate"
+              class="label-with-tooltip"
+              data-tooltip="Percentage of connections to the same source port aggregated in dst_host_srv_count."
+              >Percentage of connections to the same source port:</label
+            >
+            <input
+              type="text"
+              id="dst_host_same_src_port_rate"
+              name="dst_host_same_src_port_rate"
+              placeholder="e.g., 70 (0-100)"
+              required="required"
+            />
+          </div>
+        </div>
+
+        <!-- Additional Rows -->
+        <div class="form-row">
+          <div class="form-group">
+            <label
+              for="dst_host_same_srv_rate"
+              class="label-with-tooltip"
+              data-tooltip="Percentage of connections that were to the same service within the same destination."
+              >Percentage of connections to the same service:</label
+            >
+            <input
+              type="text"
+              id="dst_host_same_srv_rate"
+              name="dst_host_same_srv_rate"
+              placeholder="e.g., 50 (0-100)"
+              required="required"
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="dst_host_srv_count"
+              class="label-with-tooltip"
+              data-tooltip="Enter the number of connections with the same port number."
+              >Number of connections with the same port number:</label
+            >
+            <input
+              type="text"
+              id="dst_host_srv_count"
+              name="dst_host_srv_count"
+              placeholder="e.g., 5"
+              required="required"
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label
+              for="flag"
+              class="label-with-tooltip"
+              data-tooltip="Choose the connection status: Normal or Error."
+              >Connection Status:</label
+            >
+            <select id="flag" name="flag">
+              <option value="0">Other</option>
+              <option value="1">S0 (Normal)</option>
+              <option value="2">SF (Error)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label
+              for="last_flag"
+              class="label-with-tooltip"
+              data-tooltip="Specify the last flag status for this connection."
+              >Last Flag Status:</label
+            >
+            <input
+              type="text"
+              id="last_flag"
+              name="last_flag"
+              placeholder="e.g., 1"
+              required="required"
+            />
+          </div>
+        </div>
+
+        <!-- Additional Fields -->
+        <div class="form-row">
+          <div class="form-group">
+            <label
+              for="logged_in"
+              class="label-with-tooltip"
+              data-tooltip="Indicate if the login was successful (1) or not (0)."
+              >Login Status (1 if successful, 0 otherwise):</label
+            >
+            <input
+              type="text"
+              id="logged_in"
+              name="logged_in"
+              placeholder="e.g., 1"
+              required="required"
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="same_srv_rate"
+              class="label-with-tooltip"
+              data-tooltip="Percentage of connections to the same service within the past timeframe."
+              >Percentage of connections to the same service:</label
+            >
+            <input
+              type="text"
+              id="same_srv_rate"
+              name="same_srv_rate"
+              placeholder="e.g., 80"
+              required="required"
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label
+              for="serror_rate"
+              class="label-with-tooltip"
+              data-tooltip="Percentage of connections with error flags (s0, s1, etc.)."
+              >Percentage of connections activating error flags:</label
+            >
+            <input
+              type="text"
+              id="serror_rate"
+              name="serror_rate"
+              placeholder="e.g., 30"
+              required="required"
+            />
+          </div>
+        </div>
+
+        <!-- Service HTTP Field -->
+        <div class="form-row">
+          <div class="form-group">
+            <label
+              for="service_http"
+              class="label-with-tooltip"
+              data-tooltip="Select whether HTTP service is present or not."
+              >HTTP Service:</label
+            >
+            <select id="service_http" name="service_http">
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
+
+    <div class="output">
+      <h3>Results:</h3>
+      {% if output %}
+      <h3>Attack Class should be <b style="color: red">{{ output }}</b></h3>
+      {% endif %}
+    </div>
+  </body>
+</html>

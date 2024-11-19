@@ -1,0 +1,157 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set html and body to fill the full viewport */
+html, body {
+  height: 100%;
+  overflow: hidden; /* Disable scrolling */
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #003366;
+  padding: 15px 20px;
+  color: white;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar .logo span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  padding: 10px 15px;
+  color: #a0aec0;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Active and Hover States */
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: #4fd1c5;
+  color: #1f2937;
+  font-weight: bold;
+}
+
+/* Box for Active Page */
+.nav-links a.active {
+  box-shadow: 0 0 8px 2px #4fd1c5;
+  border: 2px solid #38b2ac; /* Adding a border to emphasize the active state */
+}
+
+
+/* Main Container */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  background-color: #0a1f44; /* Dark blue background for cyber security theme */
+  padding: 40px;
+}
+
+/* Registration Form Styling */
+.register-section {
+  max-width: 500px; /* Increased width for a larger form */
+  width: 100%;
+  background-color: #1a2b4c; /* Solid dark background for the form */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow for emphasis */
+  color: #ffffff; /* White text for contrast */
+}
+
+.register-section h2 {
+  margin-bottom: 25px;
+  color: #00ffff; /* Cyan color for a cyber-security feel */
+  text-align: center;
+  font-size: 28px;
+}
+
+.input-field {
+  margin-bottom: 20px;
+}
+
+.input-field label {
+  display: block;
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #0e243e; /* Darker input background */
+  color: #ffffff; /* White text inside input fields */
+  font-size: 16px;
+}
+
+.input-field input::placeholder {
+  color: #b0c4de; /* Light gray placeholder text */
+}
+
+.register-btn {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.login-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #b0c4de; /* Light gray text for the link section */
+}
+
+.login-link a {
+  color: #00ffff; /* Cyan color for links */
+  text-decoration: none;
+}
