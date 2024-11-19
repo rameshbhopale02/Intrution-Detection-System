@@ -74,3 +74,40 @@ To get started with the project, follow these steps:
    virtualenv venv
    pip install -r requirements.txt
    python app.py
+
+
+## Results
+
+The Intrusion Detection System includes both backend machine learning models and a user-friendly web interface for managing and predicting network threats. Below are images showcasing the UI components along with the system’s evaluation metrics.
+
+### User Interface (UI) Pages
+
+#### 1. Home Page
+
+The home page serves as the main landing page, providing an overview of the system's functionality and a navigation bar for quick access to different features.
+
+![Home Page](static/results/home_page.jpg)
+
+#### 2. Login Page
+
+Users need to authenticate to access the IDS features. The login page requires valid credentials.
+
+![Login Page](results/home_page.jpg)
+
+#### 3. Register Page
+
+New users can create an account through the registration page. This page collects basic information required for user authentication.
+
+![Register Page](images/ui_register_page.png)
+
+#### 4. Upload Section
+
+This section allows users to upload network data files for analysis. The uploaded files are then processed by the backend for prediction.
+
+![Upload Section](images/ui_upload_section.png)
+
+#### 5. Predict Section
+
+The predict section displays the results after analyzing the uploaded data. It categorizes network activities as normal or one of the predefined attack types.
+
+![Predict Section](images/ui_predict_section.png)
