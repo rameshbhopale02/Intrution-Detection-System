@@ -72,6 +72,7 @@ To get started with the project, follow these steps:
    git clone https://github.com/your-username/intrusion-detection-system.git
    cd intrusion-detection-system
    virtualenv venv
+   venv\Scripts\Activate
    pip install -r requirements.txt
    python app.py
 
