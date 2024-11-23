@@ -64,14 +64,14 @@
             <label
               for="dst_host_diff_srv_rate"
               class="label-with-tooltip"
-              data-tooltip="Percentage of connections that were to different services within the same destination."
-              >Percentage of connections to different services:</label
+              data-tooltip="Proportion  of connections that were to different services within the same destination."
+              >Proportion  of connections to different services:</label
             >
             <input
               type="text"
               id="dst_host_diff_srv_rate"
               name="dst_host_diff_srv_rate"
-              placeholder="e.g., 20 (0-100)"
+              placeholder="e.g., 0.1 (0-1)"
               required="required"
             />
           </div>
@@ -79,14 +79,14 @@
             <label
               for="dst_host_same_src_port_rate"
               class="label-with-tooltip"
-              data-tooltip="Percentage of connections to the same source port aggregated in dst_host_srv_count."
-              >Percentage of connections to the same source port:</label
+              data-tooltip="Proportion  of connections to the same source port aggregated in dst_host_srv_count."
+              >Proportion  of connections to the same source port:</label
             >
             <input
               type="text"
               id="dst_host_same_src_port_rate"
               name="dst_host_same_src_port_rate"
-              placeholder="e.g., 70 (0-100)"
+              placeholder="e.g., 0.2 (0-1)"
               required="required"
             />
           </div>
@@ -98,14 +98,14 @@
             <label
               for="dst_host_same_srv_rate"
               class="label-with-tooltip"
-              data-tooltip="Percentage of connections that were to the same service within the same destination."
-              >Percentage of connections to the same service:</label
+              data-tooltip="Proportion  of connections that were to the same service within the same destination."
+              >Proportion  of connections to the same service:</label
             >
             <input
               type="text"
               id="dst_host_same_srv_rate"
               name="dst_host_same_srv_rate"
-              placeholder="e.g., 50 (0-100)"
+              placeholder="e.g., 0.5 (0-1)"
               required="required"
             />
           </div>
@@ -178,14 +178,14 @@
             <label
               for="same_srv_rate"
               class="label-with-tooltip"
-              data-tooltip="Percentage of connections to the same service within the past timeframe."
-              >Percentage of connections to the same service:</label
+              data-tooltip="Proportion  of connections to the same service within the past timeframe."
+              >Proportion  of connections to the same service:</label
             >
             <input
               type="text"
               id="same_srv_rate"
               name="same_srv_rate"
-              placeholder="e.g., 80"
+              placeholder="e.g., 0.8 (0-1)"
               required="required"
             />
           </div>
@@ -196,14 +196,14 @@
             <label
               for="serror_rate"
               class="label-with-tooltip"
-              data-tooltip="Percentage of connections with error flags (s0, s1, etc.)."
-              >Percentage of connections activating error flags:</label
+              data-tooltip="Proportion  of connections with error flags (s0, s1, etc.)."
+              >Proportion  of connections activating error flags:</label
             >
             <input
               type="text"
               id="serror_rate"
               name="serror_rate"
-              placeholder="e.g., 30"
+              placeholder="e.g., 0.3"
               required="required"
             />
           </div>
